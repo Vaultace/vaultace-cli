@@ -49,3 +49,4 @@ MIT License - see LICENSE file for details.
 ## Contributing
 
 See CONTRIBUTING.md for contribution guidelines.
+# vaultace-cli
