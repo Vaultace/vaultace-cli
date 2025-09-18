@@ -1,0 +1,66 @@
+{
+  "name": "vaultace-security",
+  "displayName": "Vaultace Security",
+  "description": "AI-powered security scanning and vulnerability detection",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vaultace.scanFile",
+        "title": "Scan File",
+        "category": "Vaultace"
+      },
+      {
+        "command": "vaultace.scanWorkspace",
+        "title": "Scan Workspace",
+        "category": "Vaultace"
+      },
+      {
+        "command": "vaultace.fixVulnerability",
+        "title": "Fix Vulnerability",
+        "category": "Vaultace"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vaultace.scanFile",
+          "group": "vaultace",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Vaultace",
+      "properties": {
+        "vaultace.apiKey": {
+          "type": "string",
+          "description": "Vaultace API key for authentication"
+        },
+        "vaultace.autoScan": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically scan files on save"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  }
+}
